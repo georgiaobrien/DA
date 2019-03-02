@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>${page~title}</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+	<link rel="shortcut icon" href="https://aaf1a18515da0e792f78-c27fdabe952dfc357fe25ebf5c8897ee.ssl.cf5.rackcdn.com/2156/facebookArtboard-2-copy-150x150.jpg?v=1549301522000" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@DetentionAction" />
+    <meta name="twitter:creator" content="@DetentionAction" />
+
+	<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+
+	<style>
+	    * {
+            box-sizing: border-box;
+	    }
+
+	    body {
+	        box-sizing: border-box;
+	        margin: 0;
+	        padding: 0;
+	        font-family: 'Montserrat', sans-serif;
+	        color: #fff;
+	        font-size: 18px;
+	    }
+	    h1, h2, h3, h4 {
+	        margin-top: 0;
+	    }
+
+	    .page {
+            background: white;
+            background-image: url(https://aaf1a18515da0e792f78-c27fdabe952dfc357fe25ebf5c8897ee.ssl.cf5.rackcdn.com/2156/Petition+background.png?v=1551278643000);
+            background-size: cover;
+            background-attachment: fixed;
+            /* box-shadow: inset 0 0 0 1000px rgba(0,0,0,0.8); /* cover */
+	    }
+	    .header {
+	        background-color: #BA028F;
+	        color: #fff;
+	    }
+	    .header .logo {
+	        max-height: 150px;
+	        padding: 10px 0;
+	    }
+	    .header .logo img {
+	        max-height: 130px;
+	        width: auto;
+	        max-width: 100%;
+	    }
+	    .footer {
+	        background-color: #1A1919;
+	        color: #fff;
+	        font-size: 14px;
+	    }
+	    .footer .container {
+	        display: flex;
+	    }
+	    .footer .left,
+	    .footer .right {
+	        width: 50%;
+	    }
+	    .footer .left {
+	        text-align: left;
+	    }
+	    .footer .right {
+	        text-align: right;
+	    }
+	    .container {
+            width: 100%;
+            padding-right: 15px;
+            padding-left: 15px;
+            margin-right: auto;
+            margin-left: auto;
+            box-sizing: border-box;
+        }
+        /* page */
+        .en__component--page {
+            margin: 1rem 0;
+        }
+        /* columns */
+        .pb .en__component--row--2 {
+            justify-content: space-between;
+        }
+        .pb .en__component--row--2 .en__component--column {
+            width: 48%;
+            flex: 0 1 auto;
+        }
+        /* errors */
+        .pb .en__field__error,
+        .pb .en__error {
+            background-color: #aa0000;
+            color: #fff;
+            padding: 3px;
+            border-radius: 3px;
+        }
+        .pb .en__error {
+            margin-bottom: 1em;
+        }
+        ul.en__errorList {
+            list-style: none;
+        }
+        /* text and textarea */
+        .en__field__input--calendar,
+        .en__field__input--email,
+        .en__field__input--number,
+        .en__field__input--password,
+        .en__field__input--telephone,
+        .en__field__input--text,
+        .en__field__input--textarea,
+        .en__field__input--other {
+            font-size: 18px;
+            color: #333;
+            padding: 0.5rem;
+        }
+        /* DONATION £ */
+        /* Add £ to other donation box */
+        .en__field--donationAmt .en__field__item--other {
+            position: relative;
+        }
+        .en__field--donationAmt .en__field__item--other:before {
+            content: "£";
+            position: absolute;
+            top: 14px;
+            left: 10px;
+        }
+        .en__field--donationAmt .en__field__input--other {
+            padding-left: 18px !important;
+        }
+        /* DONATION AMOUNTS */
+        /* label full width */
+        .en__field--donationAmt > .en__field__label {
+        	width: 100%;
+        }
+        /* flex container */
+        .pb .en__field--donationAmt .en__field__element--radio {
+        	display: flex;
+        	flex-wrap: wrap;
+        	width: 100%;
+        	/*justify-content: space-between;*/
+        }
+        /* donation amount boxes */
+        /* .en__field--donationAmt .en__field__item:not(.en__field__item--other) { */
+        .pb .en__field--donationAmt .en__field__item {
+            width: 31%;
+            margin-right: 5px;
+        }
+        /* donation amount boxes labels */
+        .en__field--donationAmt .en__field__item:not(.en__field__item--other) .en__field__label--item {
+          padding: 1rem;
+        	background-color: #22AA93;
+        	color: #fff;
+        	border-radius: 5px;
+        	cursor: pointer;
+        	text-align: center;
+        	font-weight: bold;
+        	width: 100%;
+        	max-width: 100%;
+        	border: 2px solid #22AA93;
+        }
+        .en__field--donationAmt .en__field__item:not(.en__field__item--other) .en__field__label--item:hover {
+            background-color: #1d937e;
+            border: 2px solid #1d937e;
+        }
+        /* checked */
+        .en__field--donationAmt .en__field__input--radio:checked + .en__field__label,
+        .en__field--donationAmt .en__field__item:not(.en__field__item--other) .en__field__input--radio:checked + .en__field__label--item:hover {
+            background-color: #fff;
+            color: #22AA93;
+        }
+        /* other box */
+        .en__field--donationAmt .en__field__item--other {
+            width: 50%;
+        }
+        .en__field--donationAmt .en__field__input--other {
+            margin: 0;
+            width: 100%;
+        }
+        /* inputs */
+        .en__field--donationAmt .en__field__input--radio {
+            display: none;
+        }
+        @media only screen and (max-width: 600px) {
+            .en__field--donationAmt .en__field__item:not(.en__field__item--other) {
+                width: 48%;
+            }
+        }
+
+        /* labels */
+        .pb .en__field__label {
+            padding: 6px 0;
+            width: 100%;
+        }
+        .pb .en__field.en__mandatory > label::after {
+            content: " *";
+            color: #7F0A69;
+        }
+        /* buttons */
+        .pb .en__submit {
+            padding-top: 0.5em;
+        }
+        .pb button {
+            font-size: 14px;
+            line-height: 20px;
+            text-transform: uppercase;
+            display: inline-block;
+            border-radius: 4px;
+            color: #FFF;
+            border: 1px solid #FFF;
+            background-color: #ba028f;
+            padding: 20px 55px;
+            letter-spacing: 1px;
+        }
+        .pb button:hover {
+            color: #000;
+            background-color: #BBFBD9;
+        }
+        .pb button::after {
+            content: "→";
+        }
+        /* target blocks */
+        .pb .en__contact__detail {
+            color: #000;
+        }
+	    /* media queries */
+	    @media (max-width: 768px) {
+	        .pb .en__component--row--2 .en__component--column {
+                width: 100%;
+            }
+            .en__component img {
+                display: none;
+            }
+	    }
+        @media (min-width: 576px) {
+            .container {
+                max-width: 540px;
+            }
+        }
+        @media (min-width: 768px) {
+            .container {
+                max-width: 720px;
+            }
+        }
+        @media (min-width: 992px) {
+            .container {
+                max-width: 960px;
+            }
+        }
+        @media (min-width: 1200px) {
+            .container {
+                max-width: 1140px;
+            }
+        }
+
+.pb .whitebg,
+.pb .en__component--socialblock {
+    position: static;
+    flex: 1 0 auto;
+    box-sizing: border-box;
+    width: 100%;
+    min-width: 300px;
+    background: #fff;
+    color: #222;
+    padding: 1em;
+}
+.whitebg + .whitebg {
+    margin-top: -1em;
+}
+.pb .whitebg a,
+.pb .whitebg a:focus {
+    color: #BA028F;
+}
+
+.pb .greenbg {
+    position: static;
+    flex: 1 0 auto;
+    box-sizing: border-box;
+    width: 100%;
+    min-width: 300px;
+    background: #2d3f36;
+    color: #fff;
+    padding: 1em;
+}
+
+
+
+	</style>
+</head>
+<body class="pb">
+    <div class="page">
+        <div class="header">
+            <div class="container">
+                <div class="logo">
+                    <img src="https://aaf1a18515da0e792f78-c27fdabe952dfc357fe25ebf5c8897ee.ssl.cf5.rackcdn.com/2156/logo.png?v=1549386962000" alt="Detention Action logo" />
+                </div>
+            </div>
+        </div>
+        <div class="content">
+            <div class="container">
